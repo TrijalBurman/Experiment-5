@@ -19,168 +19,112 @@ The switch-case statement allows execution of code blocks based on the value of 
 
 ```
 #include <iostream>
-using namespace std; 
-
+using namespace std;
 int main()
 {
-    //do-while
-    cout<<"Using do while loop: "<<endl;
-    int a = 10;
-    do
+    int a,b,c;
+    cout<<"if-else ladder"<<endl;
+    cout<<"Enter the first number: ";
+    cin>>a;
+    cout<<"Enter the second number: ";
+    cin>>b;
+    cout<<"Enter the third number: ";
+    cin>>c;
+// if-elif-else ladder
+    if ((a>b) && (a>c))
     {
-        cout<<a<<endl;
-        a--;
-    } while (a != 0);
+        cout<<"First number is the largest."<<endl;
+    }
 
-    cout<<endl;
-    cout<<endl;
-
-   //for loop
-    cout<<"Using for loop: "<<endl;
-    int i = 0;
-    for(i = 0; i <=10;i++)
+    else if ((b>a) && (b>c))
     {
-        cout<<i<<endl;
+        cout<<"Second number is the largest."<<endl;
+    }
+
+    else
+    {
+        cout<<"Third number is the largest."<<endl;
     }
     cout<<endl;
     cout<<endl;
 
-    //while loop
-    cout<<"Using while: "<<endl;
-    int b = 10;
-    while(b>0)
+//nested if
+    cout<<"nested if"<<endl;
+     if ((a>b) && (a>c))
     {
-        cout<<b<<endl;
-        b--;
+        if (b>c)
+        cout<<"Sum of first and second number: "<<a+b<<endl;
+        else
+        cout<<"Sum of first and third number: "<<a+c<<endl;
     }
-    cout<<endl;
-    cout<<endl;
-
-    //for loop
-    cout<<"Using for: "<<endl;
-    for(i = 0; i <=100; i = i + 5 )
+    else if ((b>a) && (b>c))
     {
-         cout<<i<<endl;
+        if (a>c)
+        cout<<"Subtraction of second and first number: "<<b-a<<endl;
+        else
+        cout<<"Subtraction of second and third number: "<<b-c<<endl;
     }
-    cout<<endl;
-    cout<<endl;
-
-    //nested for - pattern
-    cout<<"Using nested for loops for pattern: "<<endl;
-    int ii,j,k = 0,n2 = 5;
-    for(ii = 1; ii <= n2; ii++)
+    else
     {
-        for(j = 1; j <= (n2-ii);j++)
-        {
-            cout<<" ";
-            while(k != (2*ii-1))
-            {
-                cout<<"* ";
-                k++;
-            }
-            k=0;
-            cout<<endl;    
-        }   
-        cout<<endl;
+        if (a<b)
+        cout<<"Product of third and first number: "<<c*a<<endl;
+        else
+        cout<<"Product of third and second number: "<<c*b<<endl;
     }
-    cout<<endl;
-    cout<<endl;
 
-    //nested do while
-    cout<<"Using nested do-while to find the product of numbers:"<<endl;
-    int q = 0,r = 0;
-    do
+    cout<<endl;
+    cout<<endl;
+    //switch case
+    cout<<"switch case"<<endl;
+    int ch;
+    float ans;
+    cout<<"Enter the first number: ";
+    cin>>a;
+    cout<<"Enter the second number: ";
+    cin>>b;
+    cout<<"Press 1 for addition."<<endl;
+    cout<<"Press 2 for subtraction. "<<endl;
+    cout<<"Press 3 for multiplication. "<<endl;
+    cout<<"Press 4 for division"<<endl;
+    cout<<"Enter your choice: ";
+    cin>>ch;
+
+    switch (ch)
     {
-        q++;
-        do
-        {
-            r++;
-            cout<<"Product of two numbers:  "<<q*r<<endl;
-        }while(r<10);
-        
-
-    } while(q<10);
-    cout<<endl;
-    cout<<endl; 
-
-    //nested while
-    cout<<"Sum of 2 numbers using nested while: "<<endl;
-    int q2 = 10, r2 = 10;
-    while(q2>0)
+    case 1:
     {
-        q2--;
-        while(r2>0)
-        {
-            r2--;
-            cout<<"Sum: "<<q2+r2<<endl;
-        }
-
+        ans = a + b;
+        cout<<"Sum: "<<ans;
+        break;
     }
-    cout<<endl;
-    cout<<endl; 
+
+    case 2:
+    {
+        ans = a - b;
+        cout<<"Subtraction: "<<ans;
+        break;
+    }
     
-    //nested for - matrix
-    cout<<"Using nested for loops for matrix: "<<endl;
-    int m,n,p;
-    int mat[2][2][2] = {
-                            {
-                                {1, 2},
-                                {3, 4}
-                            }, 
-                            {
-                                {5, 6}, 
-                                {7, 8}
-                            }
-                        };
-
-    for (int m = 0; m < 2; ++m) 
+    case 3:
     {
-        for (int n = 0; n < 2; ++n) 
-        {
-            for (int p = 0; p < 2; ++p) 
-            {
-                cout<<mat[m][n][p];
-            }
-            cout<<endl;
-        }
+        ans = a * b;
+        cout<<"Product: "<<ans;
+        break;
     }
-    cout<<endl;
-    cout<<endl; 
-    
-    //nested for + while - matrix
-    cout<<"Using nested for loops and while for matrix and checking some condition: "<<endl;
-        int m1,n1,p1;
-        int mat1[2][2][2] = {
-                                {
-                                    {1, 2},
-                                    {3, 4}
-                                }, 
-                                {
-                                    {5, 6}, 
-                                    {7, 8}
-                                }
-                            };
 
-        for (int m1 = 0; m1 < 2; ++m1) 
-        {
-            for (int n1 = 0; n1 < 2; ++n1) 
-            {
-                for (int p1 = 0; p1 < 2; ++p1) 
-                {
-                    while(mat1[m1][n1][p1] < 8)
-                    {
-                        cout<<mat1[m1][n1][p1];
-                        break;
+        case 4:
+    {
+        ans = a / b;
+        cout<<"Division "<<ans;
+        break;
+    }
 
-                    }
-                    
-                }
-                cout<<endl;
-            }
-        }
-    cout<<endl;
-    cout<<endl;
-    return 0;
+    default:
+    {
+        cout<<"INVALID INPUT";
+    }
+        break;
+    }
 }
 
 ```
